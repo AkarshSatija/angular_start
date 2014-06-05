@@ -1,0 +1,37 @@
+#notes Meetup:AngularJS @Vinsol
+
+**Data Binding**
+
+
+Hi-Chart
+
+Angular-Directives:most difficult piece of angular
+ngBlur, ngHover: are the directives
+u can rite your own directive
+
+[Dry Principles: Dont repeat urself]
+*http://misko.hevery.com/about/
+
+ng-repeat:handle with care for big values
+
+Filters: date, currency,searchText 
+
+
+high order function
+
+*local storage, 
+
+angularJS with ajax
+
+promise
+
+service: .factory('name',function(){})
+
+
+
+
+jqueryUI
+
+
+
+communicating between controllers : emit and brodcast

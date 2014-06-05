@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app="App">
+  <head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</head>
+  <body>
+
+<h4 id="source_tic-tac-toe">Tic-Tac-Toe</h4>
+<div ng-controller="TicTacToeCntl">
+Next Player: {{nextMove}}
+<div class="winner" ng-show="winner">Player {{winner}} has won!</div>
+  <table class="board">
+    <tr ng-repeat="row in board track by $index" style="height:15px;">
+      <td ng-repeat="cell in row track by $index" ng-style="cellStyle"
+          ng-click="dropPiece($parent.$index, $index)">{{cell}}</td>
+    </tr>
+  </table>
+  <button ng-click="reset()">reset board</button>
+</div>
+
+
+  </body>
+</html>
