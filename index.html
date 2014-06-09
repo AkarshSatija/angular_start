@@ -21,23 +21,48 @@
 				<img ng-src="{{image.full}}" class="img-responsive" />
 			</div>
 			<button ng-show="product.canPurchase">Add to cart</button>
-			<section ng-init="tab=1">
+
+			<section ng-controller="PanelController as panel">
 				<div class="nav nav-pills clearfix">
-					<li ng-class="{active:tab===1}"><a href="#" ng-click="tab = 1">1</a></li>
-					<li ng-class="{active:tab===2}"><a href="#" ng-click="tab = 2">2</a></li>
-					<li ng-class="{active:tab===3}"><a href="#" ng-click="tab = 3">3</a></li>
+					<li ng-class="{active:panel.isSelected(1)}">
+						<a href="#" ng-click="panel.selectTab(1)">specs</a>
+					</li>
+					<li ng-class="{active:panel.isSelected(2)}">
+						<a href="#" ng-click="panel.selectTab(2)">review</a>
+					</li>
+					<li ng-class="{active:panel.isSelected(3)}">
+						<a href="#" ng-click="panel.selectTab(3)">other</a>
+					</li>
 				</div>
-				<div class="panel" ng-show="tab===1">
-					{{tab}}{{product.desc | uppercase}}
+				<div class="panel" ng-show="panel.isSelected(1)">
+					{{panel.tab}}{{product.desc | uppercase}}
 				</div>
-				<div class="panel" ng-show="tab===2">
-					{{tab}}{{product.desc | uppercase}}
+				<div class="panel" ng-show="panel.isSelected(2)">
+					<h4>Reviews</h4>
+					<blockquote ng-repeat="review in product.reviews">
+						Stars:{{review.stars}}
+						Body:{{review.body}}
+						Author:{{review.author}}
+					</blockquote>
+					<form name="reviewForm">
+						<select>
+							<option value="1">1</option>
+							<option value="2">2</option>
+						</select>
+						<textarea></textarea>
+						<label>by:</label>
+						<input type="email" />
+						<input type="submit" value="submit" class="btn" />
+
+					</form>
+
 				</div>
-				<div class="panel" ng-show="tab===3">
-					{{tab}}{{product.desc | uppercase}}
+				<div class="panel" ng-show="panel.isSelected(3)">
+					{{panel.tab}}{{product.desc | uppercase}}
 				</div>
 				
 			</section>
+
 			<hr>
 		</div>
 	</div>
