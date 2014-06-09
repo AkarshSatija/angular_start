@@ -14,6 +14,17 @@ var gems=[
 	price:2.1,
 	desc:'........',
 	canPurchase:true,
+	images:
+	[
+		{
+			full:'http://www.wtprsoftball.com/images/facebook_thumbnail.jpg',
+			thumb:'http://www.wtprsoftball.com/images/facebook_thumbnail.jpg'
+		},
+		{
+			full:'http://www.wtprsoftball.com/images/facebook_thumbnail.jpg',
+			thumb:'http://www.wtprsoftball.com/images/facebook_thumbnail.jpg'
+		}
+	],
 
 },
 {
@@ -21,6 +32,24 @@ var gems=[
 	price:8.1,
 	desc:'........',
 	canPurchase:false,
+	images:
+	[
+		{
+			full:'http://www.wtprsoftball.com/images/facebook_thumbnail.jpg',
+			thumb:'url here'
+		},
+		{
+			full:'http://www.wtprsoftball.com/images/facebook_thumbnail.jpg',
+			thumb:'url here'
+		}
+	],
+
+},
+{
+	name:'product3',
+	price:8,
+	desc:'....asasd....',
+	canPurchase:true,
 
 }
 ];
