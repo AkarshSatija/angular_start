@@ -13,55 +13,20 @@
 
 	<div ng-controller="StoreController as store" class="row">
 		<div ng-repeat="product in store.products | orderBy:'-price' | limitTo: 3"  class="col-md-6" style="min-height:300px">
-			Name: {{product.name | uppercase}}<br> price:
-
-			{{product.price | currency }}
+			
+			<product-title>
+			</product-title>
 			
 			<div ng-repeat="image in product.images" class="col-md-2">
 				<img ng-src="{{image.full}}" class="img-responsive" />
 			</div>
 			<button ng-show="product.canPurchase">Add to cart</button>
 
-			<section ng-controller="PanelController as panel">
-				<div class="nav nav-pills clearfix">
-					<li ng-class="{active:panel.isSelected(1)}">
-						<a href="#" ng-click="panel.selectTab(1)">specs</a>
-					</li>
-					<li ng-class="{active:panel.isSelected(2)}">
-						<a href="#" ng-click="panel.selectTab(2)">review</a>
-					</li>
-					<li ng-class="{active:panel.isSelected(3)}">
-						<a href="#" ng-click="panel.selectTab(3)">other</a>
-					</li>
-				</div>
-				<div class="panel" ng-show="panel.isSelected(1)">
-					{{panel.tab}}{{product.desc | uppercase}}
-				</div>
-				<div class="panel" ng-show="panel.isSelected(2)">
-					<h4>Reviews</h4>
-					<blockquote ng-repeat="review in product.reviews">
-						Stars:{{review.stars}}
-						Body:{{review.body}}
-						Author:{{review.author}}
-					</blockquote>
-					<form name="reviewForm">
-						<select>
-							<option value="1">1</option>
-							<option value="2">2</option>
-						</select>
-						<textarea></textarea>
-						<label>by:</label>
-						<input type="email" />
-						<input type="submit" value="submit" class="btn" />
+			
 
-					</form>
+			<product-panels>
+			</product-panels>
 
-				</div>
-				<div class="panel" ng-show="panel.isSelected(3)">
-					{{panel.tab}}{{product.desc | uppercase}}
-				</div>
-				
-			</section>
 
 			<hr>
 		</div>

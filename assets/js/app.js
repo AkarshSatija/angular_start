@@ -8,6 +8,35 @@ app.controller('StoreController',function(){
 });
 
 
+app.directive('productPanels',function()
+	{
+		return {
+			restrict:'E',
+			templateUrl:'panels/product-panels.html',
+			controller:function(){
+									this.tab=2;
+									this.selectTab=function(setTab){
+										this.tab=setTab;
+									};
+									this.isSelected=function(checkTab){
+										return this.tab===checkTab;
+									};
+
+								},
+			controllerAs:'panel'
+		};	
+	});
+
+app.directive('productTitle',function () {
+	
+	return {
+		restrict:'E',
+		templateUrl:'panels/product-title.html'
+
+	};
+
+});
+
 
 app.controller("PanelController",function(){
 	this.tab=2;
@@ -19,6 +48,15 @@ app.controller("PanelController",function(){
 		return this.tab===checkTab;
 	};
 
+});
+
+
+app.controller('ReviewController',function(){
+	this.review={};
+	this.addReview=function(product){
+		product.reviews.push(this.review);
+		this.review={};
+	};
 });
 
 
@@ -96,6 +134,7 @@ var gems=[
 				price:8,
 				desc:'....asasd....',
 				canPurchase:true,
+				reviews:[],
 
 			}
 			];

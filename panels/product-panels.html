@@ -1,0 +1,53 @@
+<section>
+				<div class="nav nav-pills clearfix">
+					<li ng-class="{active:panel.isSelected(1)}">
+						<a href="#" ng-click="panel.selectTab(1)">specs</a>
+					</li>
+					<li ng-class="{active:panel.isSelected(2)}">
+						<a href="#" ng-click="panel.selectTab(2)">review</a>
+					</li>
+					<li ng-class="{active:panel.isSelected(3)}">
+						<a href="#" ng-click="panel.selectTab(3)">other</a>
+					</li>
+				</div>
+				<div class="panel" ng-show="panel.isSelected(1)">
+					{{panel.tab}}{{product.desc | uppercase}}
+				</div>
+				<div class="panel" ng-show="panel.isSelected(2)">
+					<h4>Reviews</h4>
+					<blockquote ng-repeat="review in product.reviews">
+						Stars:{{review.stars}}
+						Body:{{review.body}}
+						Author:{{review.author}}
+					</blockquote>
+					
+					<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+					<blockquote >
+						Stars:{{reviewCtrl.review.stars}}
+						Body:{{reviewCtrl.review.body}}
+						Author:{{reviewCtrl.review.author}}
+						<b ng-show="reviewCtrl.review.color">My fav Color:{{reviewCtrl.review.color}}</b>
+						<b ng-show="reviewCtrl.review.terms">He agree to the terms and conditions</b>
+					</blockquote>
+						<select ng-model="reviewCtrl.review.stars" required>
+
+							<option value="1">1</option>
+							<option value="2">2</option>
+						</select>
+						<textarea ng-model="reviewCtrl.review.body" required></textarea>
+						<label>by:</label>
+						<input type="email" ng-model="reviewCtrl.review.author" required />
+						
+						<!-- <input type="radio" name="color" value="Red" ng-model="reviewCtrl.review.color">
+						<input type="radio" name="color" value="Green" ng-model="reviewCtrl.review.color">
+						<input type="radio" name="color" value="Blue" ng-model="reviewCtrl.review.color">
+
+						<input type="checkbox" ng-model="reviewCtrl.review.terms"> -->
+						<input type="submit" value="submit" class="btn" />
+
+					</form>
+				</div>
+				<div class="panel" ng-show="panel.isSelected(3)">
+					{{panel.tab}}{{product.desc | uppercase}}
+				</div>
+			</section>
